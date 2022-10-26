@@ -1,3 +1,4 @@
+# a simple parser for python. use get_number() and get_word() to read
 def parser():
     while 1:
         data = list(input().split(' '))

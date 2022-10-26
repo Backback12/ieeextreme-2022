@@ -1,0 +1,85 @@
+# a simple parser for python. use get_number() and get_word() to read
+def parser():
+    while 1:
+        data = list(input().split(' '))
+        for number in data:
+            if len(number) > 0:
+                yield(number)   
+
+input_parser = parser()
+
+def get_word():
+    global input_parser
+    return next(input_parser)
+
+def get_number():
+    data = get_word()
+    try:
+        return int(data)
+    except ValueError:
+        return float(data)
+
+# numpy and scipy are available for use
+import numpy
+import scipy
+import math
+
+jobCount = get_number()
+workerCount = get_number()
+
+workList = [[]]*workerCount
+workSum = [0]*workerCount
+jobList = []
+for _ in range(jobCount):
+    jobList.append(get_number())
+
+
+jobList.sort(reverse=True)
+
+for job in jobList:
+    indexOfMin = workSum.index(min(workSum))
+    
+    workSum[indexOfMin] += job
+    workList[indexOfMin].append(job)
+    
+# biggestIndex = workList.index(max([sum(x) for x in workList]))
+print(workSum)
+print(workList)
+
+# biggestIndex = 0
+# biggestValue = 0
+# for i, workL in enumerate(workList):
+#     if sum(workL) > biggestValue:
+#         biggestIndex = i
+#         biggestValue = sum(workL)
+
+
+# output = 0
+# for job in workList[biggestIndex]:
+#     output += pow(2, job)
+
+# print(output % 1000000007)
+
+def getSumm(arr):
+    output = 0
+    for item in arr:
+        output += pow(2, item)
+    return output
+    
+
+outList = []
+for i, work in enumerate(workList):
+    outList.append(getSumm(work))
+    
+    
+
+print(max(outList) % 1000000007)
+    
+    
+    
+    
+    
+    
+    
+    
+    

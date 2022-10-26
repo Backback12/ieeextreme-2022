@@ -4,7 +4,7 @@ import java.lang.*;
 import java.io.*;
 
 // Please name your class Main
-class Main {
+class GauisLetters {
 	public static void main (String[] args) throws java.lang.Exception {
 	    Scanner in = new Scanner(System.in);
 	    String alph_lower = "abcdefghijklmnopqrstuvwxyz";

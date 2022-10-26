@@ -1,0 +1,56 @@
+# a simple parser for python. use get_number() and get_word() to read
+def parser():
+    while 1:
+        data = list(input().split(' '))
+        for number in data:
+            if len(number) > 0:
+                yield(number)   
+
+input_parser = parser()
+
+def get_word():
+    global input_parser
+    return next(input_parser)
+
+def get_number():
+    data = get_word()
+    try:
+        return int(data)
+    except ValueError:
+        return float(data)
+
+# numpy and scipy are available for use
+import numpy
+import scipy
+import math
+
+jobCount = get_number()
+workerCount = get_number()
+
+# jobs = [0]*jobCount
+jobs = numpy.zeros(jobCount, dtype=object)
+
+for i in range(jobCount):
+    jobs[i] = pow(2, get_number())
+    
+# sort jobs from biggest to smallest
+# jobs.sort(reverse=True)
+jobs = numpy.sort(jobs)[::-1]
+
+#work = [0] * workerCount
+work = numpy.zeros(workerCount, dtype=object)
+
+
+for job in jobs:
+    # sort work by smallest to largest
+    # work.sort()
+    work = numpy.sort(work)
+    
+    # add job to [0] index
+    
+    work[0] += job
+    
+
+    #work[work.index(min(work))] += job
+
+print(int(max(work)) % 1000000007)
