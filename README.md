@@ -1,5 +1,5 @@
-## ieeextreme-2022
-# Repository for IEEEXtreme 2022
+# ieeextreme-2022
+## Repository for IEEEXtreme 2022
 
 Code Repository used for storage, will be shown public after competition end. 
 Languages Used: Java, and Python
