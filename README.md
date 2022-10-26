@@ -1,4 +1,4 @@
-# ieeextreme-2022
+# IEEEXtreme - 2022
 ## Repository for IEEEXtreme 2022
 
 Code Repository used for storage, will be shown public after competition end. 
